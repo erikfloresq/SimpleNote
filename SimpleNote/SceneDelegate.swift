@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -17,6 +18,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
+        let storyboard = self.window?.rootViewController?.storyboard
+        guard let navigation = storyboard?.instantiateViewController(withIdentifier: "UINavigationController") as? UINavigationController else {
+            fatalError("Load NavigationController failed")
+        }
+        guard let vc = navigation.viewControllers.first as? NoteViewController else {
+            fatalError("Load NoteViewController failed")
+        }
+        vc.managedObjectContext = persistentContainer.viewContext
+        self.window?.rootViewController = navigation
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -47,8 +57,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
 
         // Save changes in the application's managed object context when the application transitions to the background.
-        (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
+
+    // COREDATA STack
+
+    lazy var persistentContainer: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: "SimpleNote")
+        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+            if let error = error as NSError? {
+                fatalError("Unresolved error \(error), \(error.userInfo)")
+            }
+        })
+        return container
+    }()
 
 
 }

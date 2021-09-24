@@ -9,23 +9,29 @@
 /* Begin PBXBuildFile section */
 		93A569B826FD26230066930B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A569B726FD26230066930B /* AppDelegate.swift */; };
 		93A569BA26FD26230066930B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A569B926FD26230066930B /* SceneDelegate.swift */; };
-		93A569BC26FD26230066930B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A569BB26FD26230066930B /* ViewController.swift */; };
+		93A569BC26FD26230066930B /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A569BB26FD26230066930B /* NoteViewController.swift */; };
 		93A569BF26FD26230066930B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93A569BD26FD26230066930B /* Main.storyboard */; };
-		93A569C226FD26230066930B /* SimpleNote.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 93A569C026FD26230066930B /* SimpleNote.xcdatamodeld */; };
 		93A569C426FD26250066930B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93A569C326FD26250066930B /* Assets.xcassets */; };
 		93A569C726FD26250066930B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93A569C526FD26250066930B /* LaunchScreen.storyboard */; };
+		93F45D6D26FE536300FC81A7 /* SimpleNote.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 93F45D6B26FE536300FC81A7 /* SimpleNote.xcdatamodeld */; };
+		93F45D7126FE53D700FC81A7 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F45D7026FE53D700FC81A7 /* Note.swift */; };
+		93F45D7426FE54B100FC81A7 /* NSManagedObjectContext+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F45D7326FE54B100FC81A7 /* NSManagedObjectContext+Extension.swift */; };
+		93F45D7726FE55F500FC81A7 /* Managed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F45D7626FE55F500FC81A7 /* Managed.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		93A569B426FD26230066930B /* SimpleNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93A569B726FD26230066930B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93A569B926FD26230066930B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		93A569BB26FD26230066930B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		93A569BB26FD26230066930B /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
 		93A569BE26FD26230066930B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		93A569C126FD26230066930B /* SimpleNote.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SimpleNote.xcdatamodel; sourceTree = "<group>"; };
 		93A569C326FD26250066930B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		93A569C626FD26250066930B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		93A569C826FD26250066930B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		93F45D6C26FE536300FC81A7 /* SimpleNote.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SimpleNote.xcdatamodel; sourceTree = "<group>"; };
+		93F45D7026FE53D700FC81A7 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		93F45D7326FE54B100FC81A7 /* NSManagedObjectContext+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+Extension.swift"; sourceTree = "<group>"; };
+		93F45D7626FE55F500FC81A7 /* Managed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Managed.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +64,27 @@
 		93A569B626FD26230066930B /* SimpleNote */ = {
 			isa = PBXGroup;
 			children = (
+				93F45D6F26FE53B500FC81A7 /* Data */,
 				93A569B726FD26230066930B /* AppDelegate.swift */,
 				93A569B926FD26230066930B /* SceneDelegate.swift */,
-				93A569BB26FD26230066930B /* ViewController.swift */,
+				93A569BB26FD26230066930B /* NoteViewController.swift */,
 				93A569BD26FD26230066930B /* Main.storyboard */,
 				93A569C326FD26250066930B /* Assets.xcassets */,
 				93A569C526FD26250066930B /* LaunchScreen.storyboard */,
 				93A569C826FD26250066930B /* Info.plist */,
-				93A569C026FD26230066930B /* SimpleNote.xcdatamodeld */,
 			);
 			path = SimpleNote;
+			sourceTree = "<group>";
+		};
+		93F45D6F26FE53B500FC81A7 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				93F45D6B26FE536300FC81A7 /* SimpleNote.xcdatamodeld */,
+				93F45D7026FE53D700FC81A7 /* Note.swift */,
+				93F45D7326FE54B100FC81A7 /* NSManagedObjectContext+Extension.swift */,
+				93F45D7626FE55F500FC81A7 /* Managed.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,10 +157,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93A569BC26FD26230066930B /* ViewController.swift in Sources */,
+				93A569BC26FD26230066930B /* NoteViewController.swift in Sources */,
 				93A569B826FD26230066930B /* AppDelegate.swift in Sources */,
+				93F45D6D26FE536300FC81A7 /* SimpleNote.xcdatamodeld in Sources */,
 				93A569BA26FD26230066930B /* SceneDelegate.swift in Sources */,
-				93A569C226FD26230066930B /* SimpleNote.xcdatamodeld in Sources */,
+				93F45D7726FE55F500FC81A7 /* Managed.swift in Sources */,
+				93F45D7426FE54B100FC81A7 /* NSManagedObjectContext+Extension.swift in Sources */,
+				93F45D7126FE53D700FC81A7 /* Note.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,12 +367,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		93A569C026FD26230066930B /* SimpleNote.xcdatamodeld */ = {
+		93F45D6B26FE536300FC81A7 /* SimpleNote.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				93A569C126FD26230066930B /* SimpleNote.xcdatamodel */,
+				93F45D6C26FE536300FC81A7 /* SimpleNote.xcdatamodel */,
 			);
-			currentVersion = 93A569C126FD26230066930B /* SimpleNote.xcdatamodel */;
+			currentVersion = 93F45D6C26FE536300FC81A7 /* SimpleNote.xcdatamodel */;
 			path = SimpleNote.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
