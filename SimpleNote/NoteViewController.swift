@@ -21,12 +21,25 @@ class NoteViewController: UIViewController {
         textArea.delegate = self
         let note = fetchNote()
         textArea.text = note?.text ?? ""
+        textArea.autocapitalizationType = .none
+        textArea.autocorrectionType = .no
         addLinkAttribute(in: textArea)
     }
 
     @objc func doneAction() {
         textArea.resignFirstResponder()
         navigationItem.rightBarButtonItem = nil
+        if textArea.text.isEmpty {
+            return
+        }
+        managedObjectContext.performChanges { [weak self] in
+            guard let self = self else { return }
+            if let note = self.fetchNote() {
+                note.update(text: self.textArea.text)
+            } else {
+                _ = Note.insert(context: self.managedObjectContext, text: self.textArea.text)
+            }
+        }
     }
 
     func addLinkAttribute(in textView: UITextView) {
@@ -40,13 +53,12 @@ class NoteViewController: UIViewController {
             let url = text[range]
             attribute.addAttribute(.link, value: url, range: match.range)
         }
-
         textView.attributedText = attribute
     }
 
     func fetchNote() -> Note? {
         let notesFetchRequest = Note.sortedFetchRequest
-        let notes = try? notesFetchRequest.execute()
+        let notes = try? managedObjectContext.fetch(notesFetchRequest)
         return notes?.first
     }
 }
@@ -58,17 +70,6 @@ extension NoteViewController: UITextViewDelegate {
 
     func textViewDidEndEditing(_ textView: UITextView) {
         addLinkAttribute(in: textView)
-        if textView.text.isEmpty {
-            return
-        }
-        managedObjectContext.performChanges { [weak self] in
-            guard let self = self else { return }
-            if let note = self.fetchNote() {
-                note.update(text: textView.text)
-            } else {
-                _ = Note.insert(context: self.managedObjectContext, text: textView.text)
-            }
-        }
     }
 }
 
